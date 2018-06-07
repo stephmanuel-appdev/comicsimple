@@ -6,6 +6,7 @@ class ComicsController < ApplicationController
   end
 
   def show
+    @medium = Medium.new
     @comic = Comic.find(params[:id])
 
     render("comics/show.html.erb")

@@ -54,6 +54,56 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_medium" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for comic_id -->
+      <input type="hidden" name="comic_id" value="<%= @comic.id %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for url -->
+      <div class="form-group">
+        <label for="url" class="control-label">
+          Url
+        </label>
+
+        <input type="text" id="url" name="url" placeholder="Url" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <input type="text" id="description" name="description" placeholder="Description" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for social_issue -->
+      <div class="form-group">
+        <label for="social_issue" class="control-label">
+          Social issue
+        </label>
+
+        <input type="text" id="social_issue" name="social_issue" placeholder="Social issue" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Medium
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
