@@ -19,7 +19,13 @@
 
       <% @media.each do |medium| %>
       <tr>
-        <td><%= medium.comic.name %></td>
+        <td>
+          <% if medium.comic.present? %>
+            <a href="/comics/<%= medium.comic.id %>">
+              <%= medium.comic.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= medium.name %></td>
         <td><%= medium.url %></td>
         <td><%= medium.description %></td>

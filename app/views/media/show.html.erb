@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Comic</dt>
-      <dd><%= @medium.comic_id %></dd>
+      <dd>
+        <% if @medium.comic.present? %>
+          <a href="/comics/<%= @medium.comic_id %>">
+            <%= @medium.comic.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Name</dt>
       <dd><%= @medium.name %></dd>
