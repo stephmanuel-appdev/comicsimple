@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h1>
+    Media
+    <a href="/media/new" class="btn btn-lg btn-success">New Medium</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Comic</th>
+        <th>Name</th>
+        <th>Url</th>
+        <th>Description</th>
+        <th>Social issue</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @media.each do |medium| %>
+      <tr>
+        <td><%= medium.comic_id %></td>
+        <td><%= medium.name %></td>
+        <td><%= medium.url %></td>
+        <td><%= medium.description %></td>
+        <td><%= medium.social_issue %></td>
+        <td>
+          <a href="/media/<%= medium.id %>" class="btn btn-primary">Show</a>
+          <a href="/media/<%= medium.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_medium/<%= medium.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

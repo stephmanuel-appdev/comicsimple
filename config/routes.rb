@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Medium resource:
+  # CREATE
+  get "/media/new", :controller => "media", :action => "new"
+  post "/create_medium", :controller => "media", :action => "create"
+
+  # READ
+  get "/media", :controller => "media", :action => "index"
+  get "/media/:id", :controller => "media", :action => "show"
+
+  # UPDATE
+  get "/media/:id/edit", :controller => "media", :action => "edit"
+  post "/update_medium/:id", :controller => "media", :action => "update"
+
+  # DELETE
+  get "/delete_medium/:id", :controller => "media", :action => "destroy"
+  #------------------------------
+
   # Routes for the Comic resource:
   # CREATE
   get "/comics/new", :controller => "comics", :action => "new"
