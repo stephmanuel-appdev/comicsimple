@@ -1,6 +1,6 @@
 class ComicsController < ApplicationController
   def index
-    @comics = Comic.all
+    @comics = Comic.page(params[:page]).per(10)
 
     render("comics/index.html.erb")
   end

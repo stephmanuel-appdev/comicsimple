@@ -1,6 +1,6 @@
 class MediaController < ApplicationController
   def index
-    @media = Medium.all
+    @media = Medium.page(params[:page]).per(10)
 
     render("media/index.html.erb")
   end
