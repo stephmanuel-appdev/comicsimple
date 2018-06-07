@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "comics#index"
   # Routes for the Medium resource:
   # CREATE
   get "/media/new", :controller => "media", :action => "new"
