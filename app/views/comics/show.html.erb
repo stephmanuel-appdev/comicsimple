@@ -26,3 +26,34 @@
     </div>
   </div>
 </div>
+
+<!-- A Comic has many media -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Media
+      </li>
+
+      <% @comic.media.each do |medium| %>
+        <li class="list-group-item">
+          <a href="/media/<%= medium.id %>">
+            <%= medium.comic_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/media/<%= medium.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/media/<%= medium.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_medium/<%= medium.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
