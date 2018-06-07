@@ -1,6 +1,7 @@
 class ComicsController < ApplicationController
   def index
-    @comics = Comic.page(params[:page]).per(10)
+    @q = Comic.ransack(params[:q])
+    @comics = @q.result(:distinct => true).includes(:media).page(params[:page]).per(10)
 
     render("comics/index.html.erb")
   end

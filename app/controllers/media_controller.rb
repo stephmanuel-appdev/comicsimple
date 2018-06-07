@@ -1,6 +1,7 @@
 class MediaController < ApplicationController
   def index
-    @media = Medium.page(params[:page]).per(10)
+    @q = Medium.ransack(params[:q])
+    @media = @q.result(:distinct => true).includes(:comic).page(params[:page]).per(10)
 
     render("media/index.html.erb")
   end
