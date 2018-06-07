@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @comic.errors.any? %>
+  <% @comic.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Comic</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_comic" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="<%= @comic.name %>">
+      </div>
+
+      <!-- Label and input for comic_url -->
+      <div class="form-group">
+        <label for="comic_url" class="control-label">
+          Comic url
+        </label>
+
+        <input type="text" id="comic_url" name="comic_url" placeholder="Comic url" class="form-control" value="<%= @comic.comic_url %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Comic
+      </button>
+      or
+      <a href="/comics">Cancel</a>
+    </form>
+  </div>
+</div>
